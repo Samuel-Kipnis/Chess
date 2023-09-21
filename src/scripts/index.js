@@ -16,8 +16,7 @@ class Piece {
 class Pawn extends Piece {
 	constructor(x, y, color, type) {
 		super(x, y, color, type);
-		this.image =
-			'https://clipart-library.com/images_k/chess-piece-silhouette/chess-piece-silhouette-1.png';
+		this.image = 'https://clipart-library.com/images_k/chess-piece-silhouette/chess-piece-silhouette-1.png';
 	}
 	validMove(x, y) {
 		if (this.color === 'white') {
@@ -46,8 +45,7 @@ class Pawn extends Piece {
 class Rook extends Piece {
 	constructor(x, y, color, type) {
 		super(x, y, color, type);
-		this.image =
-			'https://clipart-library.com/images_k/chess-piece-silhouette/chess-piece-silhouette-1.png';
+		this.image = 'https://clipart-library.com/images_k/chess-piece-silhouette/chess-piece-silhouette-1.png';
 	}
 	validMove(x, y) {
 		if (x != 0 && y != 0) {
@@ -61,8 +59,7 @@ class Rook extends Piece {
 class Bishop extends Piece {
 	constructor(x, y, color, type) {
 		super(x, y, color, type);
-		this.image =
-			'https://clipart-library.com/images_k/chess-piece-silhouette/chess-piece-silhouette-1.png';
+		this.image = 'https://clipart-library.com/images_k/chess-piece-silhouette/chess-piece-silhouette-1.png';
 	}
 	validMove(x, y) {
 		if (x != 0 && y != 0) {
@@ -76,8 +73,7 @@ class Bishop extends Piece {
 class Knight extends Piece {
 	constructor(x, y, color, type) {
 		super(x, y, color, type);
-		this.image =
-			'https://clipart-library.com/images_k/chess-piece-silhouette/chess-piece-silhouette-1.png';
+		this.image = 'https://clipart-library.com/images_k/chess-piece-silhouette/chess-piece-silhouette-1.png';
 	}
 	validMove(x, y) {
 		if (x != 0 && y != 0) {
@@ -100,8 +96,7 @@ class Knight extends Piece {
 class Queen extends Piece {
 	constructor(x, y, color, type) {
 		super(x, y, color, type);
-		this.image =
-			'https://clipart-library.com/images_k/chess-piece-silhouette/chess-piece-silhouette-1.png';
+		this.image = 'https://clipart-library.com/images_k/chess-piece-silhouette/chess-piece-silhouette-1.png';
 	}
 	validMove(x, y) {
 		if (x != 0 && y != 0) {
@@ -119,8 +114,7 @@ class Queen extends Piece {
 class King extends Piece {
 	constructor(x, y, color, type) {
 		super(x, y, color, type);
-		this.image =
-			'https://clipart-library.com/images_k/chess-piece-silhouette/chess-piece-silhouette-1.png';
+		this.image = 'https://clipart-library.com/images_k/chess-piece-silhouette/chess-piece-silhouette-1.png';
 	}
 	validMove(x, y) {
 		if (x != 0 && y != 0) {
@@ -150,71 +144,47 @@ class Board {
 
 		for (let square in this.squares) {
 			if (this.squares[square].y === 2) {
-				this.pieces.push(
-					new Pawn(this.squares[square].x, this.squares[square].y, 'white', 'pawn'),
-				);
+				this.pieces.push(new Pawn(this.squares[square].x, this.squares[square].y, 'white', 'pawn'));
 			} else if (this.squares[square].y === 7) {
-				this.pieces.push(
-					new Pawn(this.squares[square].x, this.squares[square].y, 'black', 'pawn'),
-				);
+				this.pieces.push(new Pawn(this.squares[square].x, this.squares[square].y, 'black', 'pawn'));
 			} else if (
 				(this.squares[square].y === 1 && this.squares[square].x === 1) ||
 				(this.squares[square].y === 1 && this.squares[square].x === 8)
 			) {
-				this.pieces.push(
-					new Rook(this.squares[square].x, this.squares[square].y, 'white', 'rook'),
-				);
+				this.pieces.push(new Rook(this.squares[square].x, this.squares[square].y, 'white', 'rook'));
 			} else if (
 				(this.squares[square].y === 8 && this.squares[square].x === 1) ||
 				(this.squares[square].y === 8 && this.squares[square].x === 8)
 			) {
-				this.pieces.push(
-					new Rook(this.squares[square].x, this.squares[square].y, 'black', 'rook'),
-				);
+				this.pieces.push(new Rook(this.squares[square].x, this.squares[square].y, 'black', 'rook'));
 			} else if (
 				(this.squares[square].y === 1 && this.squares[square].x === 3) ||
 				(this.squares[square].y === 1 && this.squares[square].x === 6)
 			) {
-				this.pieces.push(
-					new Bishop(this.squares[square].x, this.squares[square].y, 'white', 'bishop'),
-				);
+				this.pieces.push(new Bishop(this.squares[square].x, this.squares[square].y, 'white', 'bishop'));
 			} else if (
 				(this.squares[square].y === 8 && this.squares[square].x === 3) ||
 				(this.squares[square].y === 8 && this.squares[square].x === 6)
 			) {
-				this.pieces.push(
-					new Bishop(this.squares[square].x, this.squares[square].y, 'black', 'bishop'),
-				);
+				this.pieces.push(new Bishop(this.squares[square].x, this.squares[square].y, 'black', 'bishop'));
 			} else if (
 				(this.squares[square].y === 1 && this.squares[square].x === 2) ||
 				(this.squares[square].y === 1 && this.squares[square].x === 7)
 			) {
-				this.pieces.push(
-					new Knight(this.squares[square].x, this.squares[square].y, 'white', 'knight'),
-				);
+				this.pieces.push(new Knight(this.squares[square].x, this.squares[square].y, 'white', 'knight'));
 			} else if (
 				(this.squares[square].y === 8 && this.squares[square].x === 2) ||
 				(this.squares[square].y === 8 && this.squares[square].x === 7)
 			) {
-				this.pieces.push(
-					new Knight(this.squares[square].x, this.squares[square].y, 'black', 'knight'),
-				);
+				this.pieces.push(new Knight(this.squares[square].x, this.squares[square].y, 'black', 'knight'));
 			} else if (this.squares[square].y === 1 && this.squares[square].x === 5) {
-				this.pieces.push(
-					new Queen(this.squares[square].x, this.squares[square].y, 'white', 'queen'),
-				);
+				this.pieces.push(new Queen(this.squares[square].x, this.squares[square].y, 'white', 'queen'));
 			} else if (this.squares[square].y === 8 && this.squares[square].x === 5) {
-				this.pieces.push(
-					new Queen(this.squares[square].x, this.squares[square].y, 'black', 'queen'),
-				);
+				this.pieces.push(new Queen(this.squares[square].x, this.squares[square].y, 'black', 'queen'));
 			} else if (this.squares[square].y === 1 && this.squares[square].x === 4) {
-				this.pieces.push(
-					new King(this.squares[square].x, this.squares[square].y, 'white', 'king'),
-				);
+				this.pieces.push(new King(this.squares[square].x, this.squares[square].y, 'white', 'king'));
 			} else if (this.squares[square].y === 8 && this.squares[square].x === 4) {
-				this.pieces.push(
-					new King(this.squares[square].x, this.squares[square].y, 'black', 'king'),
-				);
+				this.pieces.push(new King(this.squares[square].x, this.squares[square].y, 'black', 'king'));
 			}
 		}
 	}
