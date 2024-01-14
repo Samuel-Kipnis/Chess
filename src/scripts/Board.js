@@ -41,7 +41,6 @@ export default class Board {
 	removePiece(pieceToRemove) {
 		for (let piece in this.pieces) {
 			if (this.pieces[piece] === pieceToRemove) {
-				console.log(this.pieces[piece]);
 				this.pieces.splice(piece, 1);
 			}
 		}
