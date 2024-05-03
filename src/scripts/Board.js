@@ -20,10 +20,13 @@ export default class Board {
 	}
 	movePiece(piece, x, y) {
 		console.log('move attempted');
+		console.log(piece, x, y);
 		if (this.isValidMove(piece, x, y)) {
 			piece.setCoordinates(x, y);
 			this.calcuateCaptures(x, y, piece);
 			console.log('move successful');
+		} else {
+			console.log('move failed');
 		}
 	}
 	calcuateCaptures(x, y, movedPiece) {
