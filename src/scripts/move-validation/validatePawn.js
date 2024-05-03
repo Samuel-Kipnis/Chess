@@ -1,12 +1,35 @@
-export default function (x1, y1, x2, y2, color, board) {
-	if (color === 'white') {
-		if (y1 === 2) {
-			if ((x1 === x2 && y1 === y2 - 1) || (x1 === x2 && y1 === y2 - 2)) return true;
-		} else if (x1 === x2 && y1 === y2 - 1) return true;
+export default function (piece, x2, y2, board) {
+	let noInterruptions = true
+
+	if(piece.color = 'white') {
+		for(let x = piece.x + 1; x < x2; x++) {
+			if(board.getPieceByCoords(piece.y, x)) {
+				noInterruptions = false
+			}
+		}
 	}
-	if (color === 'black') {
-		if (y1 === 7) {
-			if ((x1 === x2 && y1 === y2 + 1) || (x1 === x2 && y1 === y2 + 2)) return true;
-		} else if (x1 === x2 && y1 === y2 + 1) return true;
+	
+	if(piece.color = 'black') {
+		for(let x = piece.x - 1; x < x2; x++) {
+			if(board.getPieceByCoords(piece.y, x)) {
+				noInterruptions = false
+			}
+		}
+	}
+
+	const pieceAtDestination = board.getPieceByCoords(x2, y2)
+	if (pieceAtDestination && pieceAtDestination.color !== piece.color) {
+		if (noInterruptions) {
+			if (color === 'white') {
+				if (piece.y === 2) {
+					if ((piece.x === x2 && piece.y === y2 - 1) || (piece.x === x2 && piece.y === y2 - 2)) return true;
+				} else if (piece.x === x2 && piece.y === y2 - 1) return true;
+			}
+			if (color === 'black') {
+				if (piece.y === 7) {
+					if ((piece.x === x2 && piece.y === y2 + 1) || (piece.x === x2 && piece.y === y2 + 2)) return true;
+				} else if (piece.x === x2 && piece.y === y2 + 1) return true;
+			}
+}
 	}
 }

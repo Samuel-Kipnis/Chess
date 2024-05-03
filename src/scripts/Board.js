@@ -20,7 +20,7 @@ export default class Board {
 	}
 	movePiece(piece, x, y) {
 		console.log('move attempted');
-		if (this.isValidMove(piece.x, piece.y, x, y, piece.type, piece.color)) {
+		if (this.isValidMove(piece, x, y)) {
 			piece.setCoordinates(x, y);
 			this.calcuateCaptures(x, y, piece);
 			console.log('move successful');
@@ -45,13 +45,13 @@ export default class Board {
 			}
 		}
 	}
-	isValidMove(x1, y1, x2, y2, type, color) {
-		if (type === 'pawn' && validatePawn(x1, y1, x2, y2, color, this)) return true;
-		if (type === 'rook' && validateRook(x1, y1, x2, y2, color, this)) return true;
-		if (type === 'knight' && validateKnight(x1, y1, x2, y2, color, this)) return true;
-		if (type === 'bishop' && validateBishop(x1, y1, x2, y2, color, this)) return true;
-		if (type === 'king' && validateKing(x1, y1, x2, y2, color, this)) return true;
-		if (type === 'queen' && validateQueen(x1, y1, x2, y2, color, this)) return true;
+	isValidMove(piece, x2, y2) {
+		if (piece.type === 'pawn' && validatePawn(piece, x2, y2, this)) return true;
+		if (piece.type === 'rook' && validateRook(piece, x2, y2, this)) return true;
+		if (piece.type === 'knight' && validateKnight(piece, x2, y2, this)) return true;
+		if (piece.type === 'bishop' && validateBishop(piece, x2, y2, this)) return true;
+		if (piece.type === 'king' && validateKing(piece, x2, y2, this)) return true;
+		if (piece.type === 'queen' && validateQueen(piece, x2, y2, this)) return true;
 		return false;
 	}
 }
