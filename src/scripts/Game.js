@@ -27,21 +27,22 @@ function refresh() {
 	chessboard.innerHTML = '';
 	loadSquares(board.squares);
 	loadPieces(board.pieces);
+	console.log(board.pieces);
 }
 function loadSquares() {
-	for (let i = 1; i <= 8; i++) {
-		for (let j = 1; j <= 8; j++) {
+	for (let x = 1; x <= 8; x++) {
+		for (let y = 1; y <= 8; y++) {
 			const div = document.createElement('div');
-			div.dataset.x = j;
-			div.dataset.y = i;
-			if ((i + j) % 2 === 0) {
+			div.dataset.x = y;
+			div.dataset.y = x;
+			if ((x + y) % 2 === 0) {
 				div.className = 'white';
 			} else {
 				div.className = 'black';
 			}
 			chessboard.append(div);
 			div.addEventListener('click', () => {
-				handleBoardClick(j, i);
+				handleBoardClick(x, y);
 			});
 		}
 	}
@@ -62,6 +63,7 @@ function loadPieces(squares) {
 let clicked = false;
 let lastClickedSquare = {};
 function handleBoardClick(x, y) {
+	console.log(x, y);
 	if (clicked !== true) {
 		let clickedSquare = getHTMLElement(x, y, chessboard);
 		lastClickedSquare = clickedSquare;
@@ -90,5 +92,4 @@ function handleBoardClick(x, y) {
 	refresh();
 }
 
-loadSquares(board.squares);
-loadPieces(board.pieces);
+refresh();
